@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-const {default: tiny} = require ( '../dist' );
+const {default: nano} = require ( '../dist' );
 const Fixtures = require ( '../test/native/fixtures' );
 const benchmark = require ( 'benchloop' );
 const path = require ( 'path' );
@@ -13,8 +13,8 @@ benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   log: 'compact'
 });
 
-for ( const [implementation, name] of [[tiny, 'tiny-path'], [path, 'path']] ) {
-// for ( const [implementation, name] of [[tiny, 'tiny-path']] ) {
+for ( const [implementation, name] of [[nano, 'nanopath'], [path, 'path']] ) {
+// for ( const [implementation, name] of [[nano, 'nanopath']] ) {
 // for ( const [implementation, name] of [[path, 'path']] ) {
 
   benchmark.group ( name, () => {

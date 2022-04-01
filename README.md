@@ -1,4 +1,4 @@
-# Tiny Path
+# NanoPath
 
 A tiny isomorphic port of Node@17.8.0 path module.
 
@@ -7,7 +7,7 @@ This library relies on TypeScript's type system for checking the validity of arg
 ## Install
 
 ```sh
-npm install --save tiny-path
+npm install --save nanopath
 ```
 
 ## Usage
@@ -15,10 +15,10 @@ npm install --save tiny-path
 It works just like Node's path module.
 
 ```ts
-import path from 'tiny-path'; // Implementation depending on the current platform
-import posix from 'tiny-path/posix'; // Implementation for POSIX paths
-import win32 from 'tiny-path/win32'; // Implementation for Windows paths
-import web from 'tiny-path/web'; // Alias for "tiny-path/posix"
+import path from 'nanopath'; // Implementation depending on the current platform
+import posix from 'nanopath/posix'; // Implementation for POSIX paths
+import win32 from 'nanopath/win32'; // Implementation for Windows paths
+import web from 'nanopath/web'; // Alias for "nanopath/posix"
 
 path.posix === posix // => true
 path.win32 === win32 // => true

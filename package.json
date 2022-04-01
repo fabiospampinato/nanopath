@@ -1,5 +1,5 @@
 {
-  "name": "tiny-path",
+  "name": "nanopath",
   "description": "A tiny isomorphic port of Node@17.8.0 path module.",
   "version": "1.0.0",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
     "prepublishOnly": "npm run clean && npm run compile && npm run test"
   },
   "bugs": {
-    "url": "https://github.com/fabiospampinato/tiny-path/issues"
+    "url": "https://github.com/fabiospampinato/nanopath/issues"
   },
   "license": "MIT",
   "author": {
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabiospampinato/tiny-path.git"
+    "url": "https://github.com/fabiospampinato/nanopath.git"
   },
   "keywords": [
     "path",
