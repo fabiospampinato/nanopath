@@ -3,8 +3,8 @@
 
 import {IS_WINDOWS} from './constants';
 import posix from './posix';
-import {PathPlatform} from './types';
 import win32 from './win32';
+import type {PathPlatform} from './types';
 
 /* MAIN */
 

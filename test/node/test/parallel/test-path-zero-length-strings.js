@@ -1,12 +1,16 @@
-'use strict';
+
+/* IMPORT */
+
+import assert from 'node:assert';
+import path from './path.js';
+
+/* MAIN */
 
 // These testcases are specific to one uncommon behavior in path module. Few
 // of the functions in path module, treat '' strings as current working
 // directory. This test makes sure that the behavior is intact between commits.
 // See: https://github.com/nodejs/node/pull/2106
 
-const assert = require('assert');
-const path = require('./path');
 const pwd = process.cwd();
 
 // Join will internally ignore all the zero-length strings and it will return

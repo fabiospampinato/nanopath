@@ -1,16 +1,19 @@
-'use strict';
 
-const common = require('./common');
-const fixtures = require('./fixtures');
-const assert = require('assert');
-const child = require('child_process');
-const path = require('./path');
+/* IMPORT */
+
+import assert from 'node:assert';
+import child from 'node:child_process';
+import {isWindows} from './common.js';
+import * as fixtures from './fixtures.js';
+import path from './path.js';
+
+/* MAIN */
 
 const failures = [];
 const slashRE = /\//g;
 const backslashRE = /\\/g;
 
-const posixyCwd = common.isWindows ?
+const posixyCwd = isWindows ?
   (() => {
     const _ = process.cwd()
       .replaceAll(path.sep, path.posix.sep);
@@ -52,9 +55,9 @@ resolveTests.forEach(([resolve, tests]) => {
     const actual = resolve.apply(null, test);
     let actualAlt;
     const os = resolve === path.win32.resolve ? 'win32' : 'posix';
-    if (resolve === path.win32.resolve && !common.isWindows)
+    if (resolve === path.win32.resolve && !isWindows)
       actualAlt = actual.replace(backslashRE, '/');
-    else if (resolve !== path.win32.resolve && common.isWindows)
+    else if (resolve !== path.win32.resolve && isWindows)
       actualAlt = actual.replace(slashRE, '\\');
 
     const message =
@@ -66,7 +69,7 @@ resolveTests.forEach(([resolve, tests]) => {
 });
 assert.strictEqual(failures.length, 0, failures.join('\n'));
 
-if (common.isWindows) {
+if (isWindows) {
   // Test resolving the current Windows drive letter from a spawned process.
   // See https://github.com/nodejs/node/issues/7215
   const currentDriveLetter = path.parse(process.cwd()).root.substring(0, 2);
@@ -77,7 +80,7 @@ if (common.isWindows) {
   assert.strictEqual(resolvedPath.toLowerCase(), process.cwd().toLowerCase());
 }
 
-if (!common.isWindows) {
+if (!isWindows) {
   // Test handling relative paths to be safe when process.cwd() fails.
   process.cwd = () => '';
   assert.strictEqual(process.cwd(), '');

@@ -1,13 +1,17 @@
-'use strict';
 
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
+
+import assert from 'node:assert';
+import filename from 'tiny-filename';
+import path from './path.js';
+
+/* MAIN */
 
 const failures = [];
 const slashRE = /\//g;
 
 [
-  [__filename, '.js'],
+  [filename(import.meta.url), '.js'],
   ['', ''],
   ['/path/to/file', ''],
   ['/path/to/file.ext', '.ext'],

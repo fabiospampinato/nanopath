@@ -1,8 +1,11 @@
-'use strict';
 
-const common = require('./common');
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
+
+import assert from 'node:assert';
+import {isWindows} from './common.js';
+import path from './path.js';
+
+/* MAIN */
 
 // Test thrown TypeErrors
 const typeErrorTests = [true, false, 7, null, {}, undefined, [], NaN];
@@ -47,7 +50,7 @@ assert.strictEqual(path.win32.delimiter, ';');
 // posix
 assert.strictEqual(path.posix.delimiter, ':');
 
-if (common.isWindows)
+if (isWindows)
   assert.strictEqual(path, path.win32);
 else
   assert.strictEqual(path, path.posix);

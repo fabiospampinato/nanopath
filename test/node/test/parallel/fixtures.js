@@ -1,10 +1,19 @@
 
-module.exports.path = ( ...args ) => {
+/* IMPORT */
 
-  const path = require ( 'path' );
+import nodePath from 'node:path';
+import dirname from 'tiny-dirname';
 
-  const fixturesDir = path.join ( __dirname, '..', 'fixtures' );
+/* MAIN */
 
-  return path.join ( fixturesDir, ...args );
+const path = ( ...args ) => {
+
+  const fixturesDir = nodePath.join ( dirname ( import.meta.url ), '..', 'fixtures' );
+
+  return nodePath.join ( fixturesDir, ...args );
 
 };
+
+/* EXPORT */
+
+export {path};

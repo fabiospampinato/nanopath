@@ -1,11 +1,15 @@
-'use strict';
 
-const common = require('./common');
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
 
-assert.strictEqual(path.dirname(__filename).substr(-13),
-                   common.isWindows ? 'test\\parallel' : 'test/parallel');
+import assert from 'node:assert';
+import filename from 'tiny-filename';
+import {isWindows} from './common.js';
+import path from './path.js';
+
+/* MAIN */
+
+assert.strictEqual(path.dirname(filename(import.meta.url)).substr(-13),
+                   isWindows ? 'test\\parallel' : 'test/parallel');
 
 assert.strictEqual(path.posix.dirname('/a/b/'), '/a');
 assert.strictEqual(path.posix.dirname('/a/b'), '/a');

@@ -1,10 +1,12 @@
 
 /* MAIN */
 
-const IS_WINDOWS = ( globalThis?.process?.platform === 'win32' );
+const FALLBACK_MATCH = ['', '', '', '', ''];
 
-const NO_MATCH = ['', '', '', '', ''];
+const PROCESS = globalThis.process || {};
+
+const IS_WINDOWS = ( PROCESS.platform === 'win32' );
 
 /* EXPORT */
 
-export {NO_MATCH, IS_WINDOWS};
+export {FALLBACK_MATCH, IS_WINDOWS, PROCESS};

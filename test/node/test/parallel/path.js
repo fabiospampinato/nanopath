@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-const Path = require ( '../../../..' ).default;
+import Path from '../../../../dist/index.js';
 
 /* HELPERS */
 
@@ -140,4 +140,4 @@ Win32.win32 = Win32;
 
 /* EXPORT */
 
-module.exports = Posix;
+export default Posix;

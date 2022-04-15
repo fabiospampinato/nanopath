@@ -1,10 +1,14 @@
-'use strict';
 
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
 
-assert.strictEqual(path.basename(__filename), 'test-path-basename.js');
-assert.strictEqual(path.basename(__filename, '.js'), 'test-path-basename');
+import assert from 'node:assert';
+import filename from 'tiny-filename';
+import path from './path.js';
+
+/* MAIN */
+
+assert.strictEqual(path.basename(filename(import.meta.url)), 'test-path-basename.js');
+assert.strictEqual(path.basename(filename(import.meta.url), '.js'), 'test-path-basename');
 assert.strictEqual(path.basename('.js', '.js'), '');
 assert.strictEqual(path.basename(''), '');
 assert.strictEqual(path.basename('/dir/basename.ext'), 'basename.ext');

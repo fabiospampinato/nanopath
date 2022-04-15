@@ -1,11 +1,14 @@
-'use strict';
 
-const common = require('./common');
-const fixtures = require('./fixtures');
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
 
-if (common.isWindows) {
+import assert from 'node:assert';
+import {isWindows} from './common.js';
+import * as fixtures from './fixtures.js';
+import path from './path.js';
+
+/* MAIN */
+
+if (isWindows) {
   const file = fixtures.path('a.js');
   const resolvedFile = path.resolve(file);
 
@@ -38,7 +41,7 @@ assert.strictEqual(path.posix.toNamespacedPath(true), true);
 assert.strictEqual(path.posix.toNamespacedPath(1), 1);
 assert.strictEqual(path.posix.toNamespacedPath(), undefined);
 assert.strictEqual(path.posix.toNamespacedPath(emptyObj), emptyObj);
-if (common.isWindows) {
+if (isWindows) {
   // These tests cause resolve() to insert the cwd, so we cannot test them from
   // non-Windows platforms (easily)
   assert.strictEqual(path.toNamespacedPath(''), '');

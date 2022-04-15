@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-const {describe} = require ( 'fava' );
-const path = require ( 'path' );
-const {default: Path} = require ( '../../dist' );
-const Fixtures = require ( './fixtures' );
+import {describe} from 'fava';
+import path from 'node:path';
+import Path from '../../dist/index.js';
+import Fixtures from './fixtures.js';
 
 /* MAIN */
 

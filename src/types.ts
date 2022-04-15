@@ -29,4 +29,4 @@ type PathPlatform = {
 
 /* EXPORT */
 
-export {PathObject, PathPlatform};
+export type {PathObject, PathPlatform};

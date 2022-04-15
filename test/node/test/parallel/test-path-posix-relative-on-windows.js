@@ -1,7 +1,10 @@
-'use strict';
 
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
+
+import assert from 'node:assert';
+import path from './path.js';
+
+/* MAIN */
 
 // Refs: https://github.com/nodejs/node/issues/13683
 

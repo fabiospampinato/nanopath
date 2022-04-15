@@ -1,2 +1,8 @@
 
-module.exports.isWindows = false;
+/* MAIN */
+
+const isWindows = false;
+
+/* EXPORT */
+
+export {isWindows};

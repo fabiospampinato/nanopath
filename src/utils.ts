@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import {IS_WINDOWS} from './constants';
+import {IS_WINDOWS, PROCESS} from './constants';
 
 /* MAIN */
 
@@ -19,7 +19,7 @@ const findLastIndex = <T> ( arr: ArrayLike<T>, iterator: ( value: T, index: numb
 
 const getCwd = (): string => {
 
-  return globalThis?.process?.cwd?.() || '/';
+  return PROCESS.cwd?.() || '/';
 
 };
 
@@ -35,7 +35,7 @@ const getCwdPosix = (): string => {
 
 const getEnv = ( key: string ): string | undefined => {
 
-  return globalThis?.process?.env?.[key];
+  return PROCESS.env?.[key];
 
 };
 

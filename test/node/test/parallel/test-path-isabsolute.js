@@ -1,7 +1,10 @@
-'use strict';
 
-const assert = require('assert');
-const path = require('./path');
+/* IMPORT */
+
+import assert from 'node:assert';
+import path from './path.js';
+
+/* MAIN */
 
 assert.strictEqual(path.win32.isAbsolute('/'), true);
 assert.strictEqual(path.win32.isAbsolute('//'), true);

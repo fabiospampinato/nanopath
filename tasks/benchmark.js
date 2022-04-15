@@ -1,10 +1,10 @@
 
 /* IMPORT */
 
-const {default: nano} = require ( '../dist' );
-const Fixtures = require ( '../test/native/fixtures' );
-const benchmark = require ( 'benchloop' );
-const path = require ( 'path' );
+import benchmark from 'benchloop';
+import path from 'node:path';
+import nanopath from '../dist/index.js';
+import Fixtures from '../test/native/fixtures.js';
 
 /* MAIN */
 
@@ -13,14 +13,14 @@ benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   log: 'compact'
 });
 
-for ( const [implementation, name] of [[nano, 'nanopath'], [path, 'path']] ) {
+for ( const [implementation, name] of [[nanopath, 'nanopath'], [path, 'path']] ) {
 // for ( const [implementation, name] of [[nano, 'nanopath']] ) {
 // for ( const [implementation, name] of [[path, 'path']] ) {
 
   benchmark.group ( name, () => {
 
-    // for ( const platform of ['posix', 'win32'] ) {
-    for ( const platform of ['posix'] ) {
+    for ( const platform of ['posix', 'win32'] ) {
+    // for ( const platform of ['posix'] ) {
     // for ( const platform of ['win32'] ) {
 
       benchmark.group ( platform, () => {

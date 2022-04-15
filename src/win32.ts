@@ -1,9 +1,9 @@
 
 /* IMPORT */
 
-import {NO_MATCH} from './constants';
+import {FALLBACK_MATCH} from './constants';
 import {getCwd, getEnv} from './utils';
-import {PathObject} from './types';
+import type {PathObject} from './types';
 
 /* MAIN */
 
@@ -119,7 +119,7 @@ const Win32 = {
   parse: ( path: string ): PathObject => {
 
     const re = /^(((?:\\\\[^\\]+\\[^\\]+\\?|\/\/[^\/]+\/[^\/]+\/?|[\\\/]|[a-zA-Z]:[\\\/]?|)?)(?:.*(?=[\\\/]+[^\\\/]))?)[\\\/]?((\.?(?:.+(?=\.)|\.(?=[\\\/]|$)|[^\.\\\/]*))((?:\.[^\\\/]*)?))[\\\/]*$/;
-    const match = re.exec ( path ) || NO_MATCH;
+    const match = re.exec ( path ) || FALLBACK_MATCH;
     const [, dir, root, base, name, ext] = match;
 
     return { root, dir, base, name, ext };
