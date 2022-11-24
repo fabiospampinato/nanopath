@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    ".": "./dist/index.js",
     "./posix": "./dist/posix.js",
     "./web": "./dist/posix.js",
     "./win32": "./dist/win32.js"
