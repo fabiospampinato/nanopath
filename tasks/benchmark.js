@@ -9,8 +9,7 @@ import Fixtures from '../test/native/fixtures.js';
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 500,
-  log: 'compact'
+  iterations: 500
 });
 
 for ( const [implementation, name] of [[nanopath, 'nanopath'], [path, 'path']] ) {
